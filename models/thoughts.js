@@ -1,4 +1,4 @@
-const { Schema, model,  } = require('mongoose')
+const { Schema, model } = require('mongoose')
 function formatDate(date) {
  return date.toString()
 }
