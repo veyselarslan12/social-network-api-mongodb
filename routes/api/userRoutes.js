@@ -25,7 +25,7 @@ router.get('/:_id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const newUser = await User.create(req.body)
+        // const newUser = await User.create(req.body)
         res.json(newUser)
     } catch (error) {
         res.status(400).send('Error creating new user.')
@@ -49,3 +49,6 @@ router.delete('/:_id', async (req, res) => {
         
     }
 })
+
+
+module.exports = router

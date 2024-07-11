@@ -22,11 +22,14 @@ router.get('/:_id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const newThought = await Thought.create(req.body._id)
+        const newThought = await Thought.create(req.body)
 
-        // await User.findByIdAndUpdate(req.body)
+        await User.findOneAndUpdate({username: req.body.username}, {$push: {thoughts: newThought._id}})
+        res.json(newThought)
+
     } catch (error) {
-        
+        console.log(error)
+        res.status(500).send('Error updating thought.')
     }
 })
 
@@ -37,3 +40,6 @@ router.put('/', async (req, res) => {
 router.delete('/', async (req, res) => {
     
 })
+
+
+module.exports = router
