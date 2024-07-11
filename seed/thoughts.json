@@ -1,18 +1,23 @@
 [
     {
         "thoughtText": "I dont have any thoughts.",
-        "username": "veysel"
+        "username": "veysel",
+        "reactions": [{"reactionBody": "Test reaction", "username": "josh"}]
+        
     },
     {
         "thoughtText": "I think i kinda have thought",
-        "username": "josh"
+        "username": "josh",
+        "reactions": [{"reactionBody": "Test reaction2", "username": "caleb"}]
     },
     {
         "thoughtText": "I dont know man",
-        "username": "caleb"
+        "username": "caleb",
+        "reactions": [{"reactionBody": "Test reaction3", "username": "kent"}]
     },
     {
         "thoughtText": "Let me work on this",
-        "username": "kent"
+        "username": "kent",
+        "reactions": [{"reactionBody": "Test reaction4", "username": "veysel"}]
     }
 ]

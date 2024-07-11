@@ -1,10 +1,12 @@
-const { Schema, model } = require('mongoose')
-
+const { Schema, model,  } = require('mongoose')
+function formatDate(date) {
+ return date.toString()
+}
 
 const reactionSchema = new Schema({
     reactionId: {
         type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId()
+        default: () => new Schema.Types.ObjectId()
     },
     reactionBody: {
         type: String,
@@ -18,7 +20,7 @@ const reactionSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        // TODO: what is a getter method to format the timestamp in query
+        get: formatDate
     }
 })
 
@@ -32,7 +34,7 @@ const thoughtSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        // TODO: what is a getter method to format the timestamp in query
+        get: formatDate
     },
     username: {
         type: String,
@@ -41,7 +43,8 @@ const thoughtSchema = new Schema({
     reactions: [reactionSchema]
 },{
     toObject: {
-        virtuals: true
+        virtuals: true,
+        getters: true,
     },
     id: false
 })

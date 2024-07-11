@@ -11,7 +11,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        // TODO: ask teacher about matching email
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
     thoughts: [
         {
