@@ -8,16 +8,16 @@
     {
         "thoughtText": "I think i kinda have thought",
         "username": "josh",
-        "reactions": [{"reactionBody": "Test reaction2", "username": "caleb"}]
+        "reactions": [{"reactionBody": "Test1", "username": "caleb"}]
     },
     {
         "thoughtText": "I dont know man",
         "username": "caleb",
-        "reactions": [{"reactionBody": "Test reaction3", "username": "kent"}]
+        "reactions": [{"reactionBody": "Test2", "username": "kent"}]
     },
     {
         "thoughtText": "Let me work on this",
         "username": "kent",
-        "reactions": [{"reactionBody": "Test reaction4", "username": "veysel"}]
+        "reactions": [{"reactionBody": "Test3", "username": "veysel"}]
     }
 ]
