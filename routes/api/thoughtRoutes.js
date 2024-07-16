@@ -52,26 +52,31 @@ router.delete('/:_id', async (req, res) => {
     const { _id } = req.params
     try {
         const deletedThought = await Thought.findByIdAndDelete(_id)
-        // TODO: Ask teacher
+        const user = await User.findByIdAndUpdate(deletedThought.userId, { $pull: { thoughts: req.params.thoughtId }}, { new: true})
+        res.json({ message: 'Thought successfully deleted'})
     } catch (error) {
         res.status(500).send('Error deleting thought.')
     }
 })
 
+// Post to create a reaction stored in a single thought's reactions array field
 router.post('/:thoughtId/reactions', async (req, res) => {
     const { thoughtId } = req.params
     try {
-        
+        const thought = await Thought.findByIdAndUpdate(thoughtId, { $push: { reactions: req.body }}, { new: true })
+        res.json(thought)
     } catch (error) {
-        
+        res.status(500).send('Error adding reaction to thought.')
     }
 })
 
+// Delete to pull and remove a reaction by the reaction's reactionId value
 router.delete('/:thoughtId/reactions/:reactionId', async (req, res) => {
     try {
-        
+        const thought = await Thought.findByIdAndUpdate(req.params.thoughtId, { $pull: { reactions: { reactionId: req.params.reactionId}}}, { new: true })
+        res.json(thought)
     } catch (error) {
-        
+        res.status(500).send('Error deleting reaction from thought.')
     }
 })
 
