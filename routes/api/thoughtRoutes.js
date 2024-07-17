@@ -66,6 +66,7 @@ router.post('/:thoughtId/reactions', async (req, res) => {
         const thought = await Thought.findByIdAndUpdate(thoughtId, { $push: { reactions: req.body }}, { new: true })
         res.json(thought)
     } catch (error) {
+        console.log(error)
         res.status(500).send('Error adding reaction to thought.')
     }
 })
@@ -73,9 +74,10 @@ router.post('/:thoughtId/reactions', async (req, res) => {
 // Delete to pull and remove a reaction by the reaction's reactionId value
 router.delete('/:thoughtId/reactions/:reactionId', async (req, res) => {
     try {
-        const thought = await Thought.findByIdAndUpdate(req.params.thoughtId, { $pull: { reactions: { reactionId: req.params.reactionId}}}, { new: true })
+        const thought = await Thought.findByIdAndUpdate(req.params.thoughtId, { $pull: { reactions: { _id: req.params.reactionId}}}, { new: true })
         res.json(thought)
     } catch (error) {
+        console.log(error)
         res.status(500).send('Error deleting reaction from thought.')
     }
 })
