@@ -40,4 +40,4 @@ The Social Network API is a RESTful API built with Node.js, Express.js, and Mong
 
 ## Links
 * [Github Repo Link](https://github.com/veyselarslan12/social-network-api-mongodb)
-* [Test Video Link](https://drive.google.com/file/d/1cxrpJe5KHMNue23xVuEqoAK2JkG_Gqf-/view)
+* [Test Video Link](https://drive.google.com/file/d/1ZVDoXHiEse5RcY9r-8FlSEwCMOtvkLZF/view)
